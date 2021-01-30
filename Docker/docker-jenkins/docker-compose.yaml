@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: '3.7'
+services:
+  jenkins:
+    # the container name  
+    container_name: ${CONTAINER_NAME}
+    
+    # The desired image
+    image: jenkinsci/blueocean
+    
+    # To disable the security labeling for this container
+    privileged: true
+    
+    user: root
+    # Listen on the desired ports
+    ports:
+      - ${HOST_PORT}:8080
+      - 50003:50000
+    # the mount volumes
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      # When the Docker platform is installed on a host, the Docker daemon 
+      # listens on the `/var/run/docker.sock` Unix socket by default.
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Skip the setup wizard
+    environment:
+      - jenkins.install.runSetupWizard=false
