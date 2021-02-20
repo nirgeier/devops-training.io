@@ -1,5 +1,3 @@
-// seedjob.groovy
-​
 // create an array with our two pipelines
 pipelines = ["first-pipeline", "another-pipeline"]
 ​

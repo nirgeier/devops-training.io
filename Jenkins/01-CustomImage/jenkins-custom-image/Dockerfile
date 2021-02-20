@@ -12,12 +12,14 @@ ENV CASC_JENKINS_CONFIG /usr/local/jenkins-casc.yaml
 # Copy the list of plugins we wish to install
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 
-# copy the config-as-code yaml file into the image
-COPY jenkins-casc.yaml /usr/local/jenkins-casc.yaml
-
 # copy the seedjob file into the image
 COPY seedjob.groovy /usr/local/seedjob.groovy
 
 # run the install-plugins script to install the plugins
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
+# copy the config-as-code yaml file into the image
+COPY jenkins-casc.yaml /usr/local/jenkins-casc.yaml
+
+# copy the scriptApproval file into the image
+COPY scriptApproval.xml /var/jenkins_home/scriptApproval.xml
