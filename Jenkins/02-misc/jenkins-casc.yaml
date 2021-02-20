@@ -1,8 +1,5 @@
 jenkins:
   systemMessage: "CodeWizard Jenkins CASC Demo"
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: true
   securityRealm:
     local:
       allowsSignup: false

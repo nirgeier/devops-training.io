@@ -10,13 +10,13 @@ export HOST_PORT=8080
 echo Starting Jenkinscontainer 
 
 # Start the Jenkins container
-docker-compose up -d
+docker-compose up
 
 # Grab the inital password
 JENKINS_ADMIN_PASSWORD=$(docker exec ${CONTAINER_NAME} cat /var/jenkins_home/secrets/initialAdminPassword)
 echo Jenkins initial password: $ADMIN_PASSWORD
 
 # Download JenkinsCLI
-#wget localhost:8080/jnlpJars/jenkins-cli.jar  
+wget localhost:8080/jnlpJars/jenkins-cli.jar  
 
 echo Open your browser at http://127.0.0.1:${HOST_PORT}

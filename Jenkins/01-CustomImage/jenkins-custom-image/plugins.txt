@@ -3,3 +3,5 @@ job-dsl
 workflow-job
 workflow-cps
 matrix-auth
+git
+nodejs
